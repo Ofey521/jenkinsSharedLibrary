@@ -5,6 +5,7 @@ def call(Map param = [:]) {
     if (param.path.matches('')) param.path = configData.path
     if (param.nVersion.matches('')) param.nVersion = configData.nVersion
     if (param.nVersion == null) error 'nVersion not found in jenkins_env_conf'
+    if (param.path == null) error 'path not found in jenkins_env_conf'
 
     return [path: param.path, version: param.version, nVersion: param.nVersion]
 }
